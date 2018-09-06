@@ -15,6 +15,9 @@ class Line(models.Model):
     name = models.CharField(max_length=100)
     color = models.CharField(max_length=8)
 
+    def __str__(self):
+        return self.name
+
 
 def route_id(): return create_id('route')
 
@@ -26,3 +29,6 @@ class Route(models.Model):
     stations = models.ManyToManyField(Station)
     direction = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return "{} <{}>".format(self.line.name, self.id)
