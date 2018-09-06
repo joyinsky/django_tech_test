@@ -18,6 +18,9 @@ class Line(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['-id']
+
 
 def route_id(): return create_id('route')
 
@@ -32,3 +35,6 @@ class Route(models.Model):
 
     def __str__(self):
         return "{} <{}>".format(self.line.name, self.id)
+
+    class Meta:
+        ordering = ['-id']

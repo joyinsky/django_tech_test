@@ -19,3 +19,5 @@ class Station(models.Model):
     def __str__(self):
         return "{} <{}>".format(self.location.name, self.id)
 
+    class Meta:
+        ordering = ['-id']
