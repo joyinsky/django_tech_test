@@ -47,6 +47,6 @@ class ListModelMixin(object):
         page = self.paginate_queryset(queryset)
         schema = self.schema_class(many=True)
 
-        schema = schema.dump(page).data
+        data = schema.dump(page).data
 
-        return self.get_paginated_response(schema)
+        return self.get_paginated_response(data)
