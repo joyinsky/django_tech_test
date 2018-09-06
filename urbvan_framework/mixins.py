@@ -29,9 +29,10 @@ class CreateModelMixin(mixins.CreateModelMixin):
         instance = serializer.instance
 
         schema = self.schema_class()
-        schema = schema.dump(instance).data
 
-        response = render_to_response(body=schema)
+        data = schema.dump(instance).data
+
+        response = render_to_response(body=data)
 
         return Response(response, status=status.HTTP_201_CREATED)
 
